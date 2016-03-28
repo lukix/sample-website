@@ -1,0 +1,37 @@
+//--------------------Variables & Mixins----------------------
+$primary-color: #2d2d42;
+$accent-color: #ff7e00;
+$content-background-color: white;
+$primary-text-color: black;
+$secondary-text-color: white;
+
+@mixin display-flex() {
+  display: flex;
+  display: -ms-flexbox;
+}
+@mixin flex-direction($direction) {
+  flex-direction: $direction;
+  -ms-flex-direction: $direction;
+}
+@mixin flex($value) {
+  flex: $value;
+  -ms-flex: $value;
+}
+/*
+@mixin justify-content($value) {
+  justify-content: $value;
+   -ms-flex-pack: $value;
+}
+*/
+@mixin transform($value) {
+  transform: $value;
+  -webkit-transform: $value;
+  -moz-transform: $value;
+  -o-transform: $value;
+  -ms-transform: $value;
+}
+@mixin vertical-flex-center() {
+  @include display-flex();
+  @include flex-direction(column);
+  justify-content: center;
+}

@@ -1,0 +1,147 @@
+@import 'variables.scss';   //Variables and mixins
+
+html {
+  background-color: $primary-color;
+  height: 100%;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+  box-sizing: border-box;
+  width: 900px;
+  padding: 20px;
+  min-height: 100vh;
+  margin: 0px auto;
+
+  @include display-flex();
+  @include flex-direction(column);
+
+  background-color: $content-background-color;
+  color: $primary-text-color;
+}
+
+#header, #footer {
+  background-color: $accent-color;
+  color: $secondary-text-color;
+  @include flex(0 1 auto);
+}
+#header {
+  text-align: center;
+  height: 120px;
+  @include display-flex();
+  @include flex-direction(row);
+  justify-content: flex-end;
+}
+#header h1 {
+  display: block;
+  margin: 0;
+  font-size: 3em;
+  font-weight: normal;
+  text-align: center;
+  flex: 1 1 auto;
+  @include vertical-flex-center();
+}
+#tags {
+  background-color: $primary-color;
+  list-style: none;
+  margin: 0;
+  height: 100%;
+  padding: 20px 15px;
+  position: relative;
+  top: -20px;
+  @include vertical-flex-center();
+  li {
+    line-height: 1.4rem;
+  }
+}
+#header-info {
+  text-align: left;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+#footer {
+  height: 80px;
+  text-align: right;
+  @include display-flex();
+  @include flex-direction(row);
+  justify-content: flex-start;
+  align-items: center;
+}
+#footer-gap {
+  width: 10%;
+  height: 100%;
+  padding: 2px 0;
+  margin-left: 25%;
+  @include transform(skew(-20deg));
+  background: white;
+}
+#footer p {
+  width: 100%;
+  padding: 10px;
+  color: white;
+}
+
+#content {
+  @include flex(1 1 auto);
+  padding: 0px 30px 50px 30px;
+  font-size: 1.3em;
+}
+em {
+  color: $accent-color;
+  font-style: normal;
+  font-weight: bold;
+}
+.section {
+  margin-top: 50px;
+}
+.section p {
+  margin-top: 0;
+}
+.two-col-layout {
+  @include display-flex();
+  @include flex-direction(row);
+  align-items: flex-start;
+  .first-col {
+    text-align: justify;
+  }
+  .second-col {
+    margin-left: 50px;
+    text-align: center;
+    img {
+      max-width: 200px;
+    }
+  }
+}
+.two-col-layout:nth-of-type(even).two-col-layout {
+  @include flex-direction(row-reverse);
+  .second-col {
+    margin: 0px 50px 0px 0px;
+  }
+}
+.three-col-layout {
+  @include display-flex();
+  @include flex-direction(row);
+  .col {
+    margin: 0px 15px;
+    header {
+      @include vertical-flex-center;
+      height: 70px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 2rem;
+      background-color: $accent-color;
+      color: $secondary-text-color;
+    }
+    p {
+      text-align: justify;
+    }
+  }
+  .col:first-child {
+    margin-left: 0;
+  }
+  .col:last-child {
+    margin-right: 0;
+  }
+}
+
+@import 'RWD.scss';         //Styles for smaller screens

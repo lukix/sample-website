@@ -1,0 +1,70 @@
+//------------------------RWD-----------------------------
+@media (max-width: 950px) {
+  body {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    width: 100%;
+    padding: 10px;
+  }
+  #header {
+    @include flex-direction(column);
+    height: auto;
+    h1 {
+      text-align: left;
+      margin: 0px 10px;
+    }
+    #tags{
+      order: 5;
+      @include display-flex();
+      @include flex-direction(row);
+      justify-content: space-around;
+      flex-wrap: wrap;
+      height: auto;
+      padding: 5px 10px;
+      top: 0px;
+      li {
+        padding: 0px 5px;
+      }
+    }
+    #header-info {
+      text-align: right;
+    }
+  }
+  #content {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .section {
+    border-bottom: solid 1px $primary-color;
+  }
+  .section:last-child {
+    border-bottom: none;
+  }
+  .two-col-layout {
+    @include display-flex();
+    @include flex-direction(column-reverse);
+    align-items: center;
+    .second-col {
+      margin-left: 0;
+      img {
+        max-width: none;
+        margin-bottom: 30px;
+      }
+    }
+  }
+  .two-col-layout:nth-of-type(even).two-col-layout {
+    @include flex-direction(column-reverse);
+    .second-col {
+      margin: 0;
+    }
+  }
+  .three-col-layout {
+    @include flex-direction(column);
+    .col {
+      margin: 0px;
+    }
+  }
+}
